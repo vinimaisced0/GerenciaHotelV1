@@ -18,7 +18,7 @@ public class MenuReserva {
             System.out.println("1 - Criar reservas");
             System.out.println("2 - Cancelar reservas");
             System.out.println("3 - Verificar disponibilidade de quartos");
-            System.out.println("0 - Voltar ao menu principal");
+            System.out.println("0 - Sair");
             System.out.print("Escolha uma opção: ");
             opcao = scanner.nextInt();
             scanner.nextLine(); // Limpar o buffer
