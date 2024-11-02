@@ -41,12 +41,21 @@ Utilize a função de validação de CPF para garantir a integridade dos dados.
 
 ```plaintext
 ProjetoHotel/
-├── src/
-│   ├── Main.java               # Classe principal
-│   ├── GerenciaQuartos.java    # Classe para gerenciamento de quartos
-│   ├── Quartos.java            # Classe modelo para os quartos do hotel
-│   ├── GerenciaHospedes.java   # Classe para gerenciamento de hóspedes
-│   └── ValidacaoCPF.java       # Classe utilitária para validar CPF
+│   ├── CPFException.java             # Exceção personalizada para validação de CPF.
+│   ├── DataException.java            # Exceção personalizada para validação de datas.
+│   ├── Estadia.java                  # Representa a estadia de um hóspede, incluindo informações sobre o período.
+│   ├── GerenciaHospedes.java         # Gerencia o cadastro e informações dos hóspedes.
+│   ├── GerenciaQuartos.java          # Controla e verifica a disponibilidade dos quartos.
+│   ├── GerenciaReserva.java          # Gerencia a criação, alteração e cancelamento de reservas.
+│   ├── Hospedes.java                 # Representa os hóspedes com dados pessoais e contato.
+│   ├── Ignorar.java                  # Classe auxiliar para ignorar entradas inválidas.
+│   ├── Main.java                     # Classe principal que inicializa a aplicação.
+│   ├── MenuHospede.java              # Interface de menu para operações relacionadas aos hóspedes.
+│   ├── MenuQuarto.java               # Interface de menu para operações relacionadas aos quartos.
+│   ├── MenuReserva.java              # Interface de menu para operações relacionadas às reservas.
+│   ├── Quartos.java                  # Representa os quartos do hotel, com tipo, número e status.
+│   ├── Reserva.java                  # Representa uma reserva, incluindo detalhes do hóspede e datas.
+│   ├── Validar.java                  # Classe de validação para CPF e datas.
 ├── README.md
 └── LICENSE
 ```
