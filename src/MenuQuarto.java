@@ -1,7 +1,6 @@
 import java.util.Scanner;
 
 public class MenuQuarto {
-
     private Scanner scanner;
     private Quarto quarto;
 
@@ -78,7 +77,6 @@ public class MenuQuarto {
         scanner.nextLine();
 
         quarto.criarEAdicionarQuarto(numero, tipoQuarto, capacidade, precoDiaria);
-        System.out.println("Quarto cadastrado com sucesso!");
     }
 
     private void pesquisarQuarto() {

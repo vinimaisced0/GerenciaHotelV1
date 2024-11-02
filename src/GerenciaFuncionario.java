@@ -12,7 +12,6 @@ public class GerenciaFuncionario {
 
     public void adicionarFuncionario(Funcionario funcionario) {
         funcionarios.add(funcionario);
-        System.out.println("Novo Funcionário cadastrado com sucesso!");
     }
 
 
