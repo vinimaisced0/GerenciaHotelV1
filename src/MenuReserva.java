@@ -18,7 +18,7 @@ public class MenuReserva {
             System.out.println("1 - Criar reservas");
             System.out.println("2 - Cancelar reservas");
             System.out.println("3 - Verificar disponibilidade de quartos");
-            System.out.println("0 - Sair");
+            System.out.println("0 - Voltar ao menu principal");
             System.out.print("Escolha uma opção: ");
             opcao = scanner.nextInt();
             scanner.nextLine(); // Limpar o buffer
@@ -54,7 +54,7 @@ public class MenuReserva {
         String dataSaida = scanner.nextLine();
         System.out.print("Tipo de quarto (1 - SOLTEIRO, 2 - CASAL, 3 - SUITE): ");
         int tipoQuarto = scanner.nextInt();
-        Quartos.TipoQuarto tipo = Quartos.TipoQuarto.values()[tipoQuarto - 1];
+        Quarto.TipoQuarto tipo = Quarto.TipoQuarto.values()[tipoQuarto - 1];
         System.out.print("Capacidade de hóspedes: ");
         int capacidadeHospedes = scanner.nextInt();
 

@@ -4,11 +4,11 @@ public class Reserva {
     private String nome;
     private String dataEntrada;
     private String dataSaida;
-    private Quartos.TipoQuarto tipo;
+    private Quarto.TipoQuarto tipo;
     private int capacidadeHospedes;
 
 
-    public Reserva(int numeroQuarto ,String nome, String dataEntrada, String dataSaida, Quartos.TipoQuarto tipo, int capacidadeHospedes) {
+    public Reserva(int numeroQuarto ,String nome, String dataEntrada, String dataSaida, Quarto.TipoQuarto tipo, int capacidadeHospedes) {
         this.numeroQuarto = numeroQuarto;
         this.nome = nome;
         this.dataEntrada = dataEntrada;
@@ -41,11 +41,11 @@ public class Reserva {
         this.dataSaida = dataSaida;
     }
 
-    public Quartos.TipoQuarto getTipo() {
+    public Quarto.TipoQuarto getTipo() {
         return tipo;
     }
 
-    public void setTipo(Quartos.TipoQuarto tipo) {
+    public void setTipo(Quarto.TipoQuarto tipo) {
         this.tipo = tipo;
     }
 

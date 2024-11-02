@@ -22,7 +22,7 @@ public class GerenciaReserva {
     }
 
 
-    public void adicionarReservaHospede(int numeroQuarto, String nome, String dataEntrada, String dataSaida, Quartos.TipoQuarto tipo, int capacidadeHospedes) {
+    public void adicionarReservaHospede(int numeroQuarto, String nome, String dataEntrada, String dataSaida, Quarto.TipoQuarto tipo, int capacidadeHospedes) {
         try {
             boolean disponivel = verificarDisponibilidade(numeroQuarto, dataEntrada, dataSaida);
             if (!disponivel) {

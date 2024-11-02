@@ -6,14 +6,14 @@ public class MenuFuncionario {
     private Scanner scanner;
     private Validar validar;
 
-    public MenuFuncionario(GerenciaFuncionario gerenciaFuncionario) {
-        this.gerenciaFuncionario = gerenciaFuncionario;
+    public MenuFuncionario() {
+        this.gerenciaFuncionario = new GerenciaFuncionario();
         this.scanner = new Scanner(System.in);
         this.validar = new Validar();
     }
 
     public void exibirMenuFuncionarios() {
-        int opcao;
+        int opcao = -1;
         do {
             System.out.println("\nMenu de Gerenciamento de Funcionários:");
             System.out.println("1. Cadastrar novo funcionário");
@@ -21,10 +21,17 @@ public class MenuFuncionario {
             System.out.println("3. Editar informações de um funcionário");
             System.out.println("4. Registrar horas trabalhadas");
             System.out.println("5. Calcular salário de um funcionário");
+            System.out.println("6. Visualizar histórico de Horas Trabalhadas");
             System.out.println("0. Voltar ao menu principal");
             System.out.print("Escolha uma opção: ");
-            opcao = scanner.nextInt();
-            scanner.nextLine();
+            try{
+                opcao = scanner.nextInt();
+                scanner.nextLine();
+            } catch (InputMismatchException e) {
+                System.out.println("Erro: insira um valor numérico válido.");
+                scanner.nextLine();
+                continue;
+            }
 
             switch (opcao) {
                 case 1:
@@ -42,6 +49,9 @@ public class MenuFuncionario {
                 case 5:
                     calcularSalario();
                     break;
+                case 6:
+                    visualizarHistoricoHoras();
+                    break;
                 case 0:
                     System.out.println("Retornando ao menu principal...");
                     break;
@@ -49,6 +59,8 @@ public class MenuFuncionario {
                     System.out.println("Opção inválida. Tente novamente.");
             }
         } while (opcao != 0);
+
+        scanner.close();
     }
 
     private void cadastrarFuncionario() {
@@ -60,8 +72,8 @@ public class MenuFuncionario {
             System.out.print("Digite o CPF do funcionário: ");
             cpf = scanner.nextLine();
             try {
-                validar.validaCPF(cpf); // Validação do CPF usando a classe Validar
-                break; // Sai do loop se o CPF for válido
+                validar.validaCPF(cpf); // validar cpf
+                break; // sai do loop se o CPF for válido
             } catch (CPFException e) {
                 System.out.println("Erro ao cadastrar funcionário: " + e.getMessage());
             } catch (NumberFormatException e) {
@@ -116,4 +128,12 @@ public class MenuFuncionario {
         String cpf = scanner.nextLine();
         gerenciaFuncionario.calcularSalarioFuncionario(cpf);
     }
+
+    private void visualizarHistoricoHoras() {
+        System.out.print("Digite o CPF do funcionário para visualizar o histórico de horas: ");
+        String cpf = scanner.nextLine();
+        gerenciaFuncionario.visualizarHistoricoHoras(cpf);
+    }
+
+
 }

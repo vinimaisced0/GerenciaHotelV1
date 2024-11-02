@@ -5,8 +5,8 @@ public class MenuHospede {
     private GerenciaHospedes gerenciaHospedes;
     private Scanner scanner;
 
-    public MenuHospede(GerenciaHospedes gerenciaHospedes) {
-        this.gerenciaHospedes = gerenciaHospedes;
+    public MenuHospede() {
+        this.gerenciaHospedes = new GerenciaHospedes();
         this.scanner = new Scanner(System.in);
     }
 
@@ -16,27 +16,31 @@ public class MenuHospede {
             System.out.println("\nMenu de Gerenciamento de Hóspedes:");
             System.out.println("1. Cadastrar novo hóspede");
             System.out.println("2. Listar todos os hóspedes");
-            System.out.println("3. Visualizar histórico de estadias de um hóspede");
-            System.out.println("4. Editar informações de um hóspede");
+            System.out.println("3. Adicionar Estadia ao hóspede");
+            System.out.println("4. Visualizar histórico de estadias de um hóspede");
+            System.out.println("5. Editar informações de um hóspede");
             System.out.println("0. Voltar ao menu principal");
             System.out.print("Escolha uma opção: ");
             opcao = scanner.nextInt();
-            scanner.nextLine(); // Consumir a quebra de linha
+            scanner.nextLine();
 
             switch (opcao) {
                 case 1:
                     cadastrarHospede();
                     break;
                 case 2:
-                    gerenciaHospedes.listarHospedes();
+                    listarHospedes();
                     break;
                 case 3:
-                    visualizarHistorico();
+                    adicionarEstadiaHospede();
                     break;
                 case 4:
+                    visualizarHistorico();
+                    break;
+                case 5:
                     editarHospede();
                     break;
-                case 0:
+                    case 0:
                     System.out.println("Retornando ao menu principal...");
                     break;
                 default:
@@ -54,13 +58,13 @@ public class MenuHospede {
 
         try {
 
-            Validar validar = new Validar(); // Criando a instância da classe Validar
-            validar.validaCPF(cpfInput); // Lança CPFException se o CPF for inválido
+            Validar validar = new Validar(); // cria instância validar
+            validar.validaCPF(cpfInput); // lança CPFException se CPF inválido
 
-            // Conversão para inteiro
+            // conversão para inteiro
             String cpf = cpfInput;
 
-            // Continuação do cadastro...
+            // continuação do cadastro...
             System.out.print("Digite a data de nascimento: ");
             int dataNascimento = scanner.nextInt();
             scanner.nextLine();
@@ -81,7 +85,7 @@ public class MenuHospede {
             System.out.println("CPF inválido: insira apenas números.");
         } catch (InputMismatchException e) {
             System.out.println("Erro: insira um valor numérico válido.");
-            scanner.nextLine(); // Limpa o buffer do scanner
+            scanner.nextLine();
         }
     }
 
@@ -102,6 +106,20 @@ public class MenuHospede {
         gerenciaHospedes.listarHospedes();
     }
 
+    private void adicionarEstadiaHospede() {
+        System.out.print("Digite o nome do hóspede: ");
+        String nome = scanner.nextLine();
 
+        System.out.print("Digite a data da hospedagem: ");
+        String dataHospedagem = scanner.nextLine();
+
+        System.out.print("Digite o número do quarto: ");
+        int numeroQuarto = scanner.nextInt();
+
+        System.out.print("Digite a duração da estadia: ");
+        int duracao = scanner.nextInt();
+
+        gerenciaHospedes.adicionarEstadiaHospede(nome, dataHospedagem, numeroQuarto, duracao);
+    }
 
 }
