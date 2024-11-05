@@ -87,7 +87,7 @@ GitHub: vinimaisced0
 ### Clonando o Projeto
 
 ```bash
-git clone https://github.com/vinimaisced0/ProjetoHotel.git
+git clone https://github.com/vinimaisced0/GerenciaHotelV1.git
 cd ProjetoHotel
 
 
